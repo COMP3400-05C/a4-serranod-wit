@@ -7,10 +7,11 @@
 
 int main(int argc, const char* argv[]) {
     if (argc <= 1) {
-        const char *msg = "ERROR: no arguments\n";
-        write(1, msg, 20);
+        const char *msg = "ERROR: No arguments\n";
+        write(1, msg, 20);  
         return 1;
-    }
+}
+
 
     int n = argc - 1;
 
