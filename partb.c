@@ -1,20 +1,16 @@
 #include <stdbool.h>
 #include <stddef.h>
-#include <unistd.h>   // for execv, write
-#include <stdio.h>    // for perror
-
-// TODO: Include more header files (read the manpages to find out more!)
+#include <unistd.h>   // execv, write
+#include <stdio.h>    // perror
 
 int main(int argc, const char* argv[]) {
     if (argc <= 1) {
         const char *msg = "ERROR: No arguments\n";
         write(1, msg, 20);  
         return 1;
-}
+    }
 
-
-    int n = argc - 1;
-
+    int n = argc - 1;  
 
     char *eargs[4];
     eargs[0] = "echo";
@@ -24,8 +20,8 @@ int main(int argc, const char* argv[]) {
         eargs[1] = (char *)argv[1 + mid];
         eargs[2] = NULL;
     } else {
-        int mid2 = n / 2;               
-        int mid1 = mid2 - 1;            
+        int mid2 = n / 2;              
+        int mid1 = mid2 - 1;           
         eargs[1] = (char *)argv[1 + mid1];
         eargs[2] = (char *)argv[1 + mid2];
         eargs[3] = NULL;
@@ -39,3 +35,4 @@ int main(int argc, const char* argv[]) {
 
     return 0;
 }
+
